@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './CSS/index.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Navbar from './components/Navbar'
 
 import Happy from './components/Happy';
 import Sleepy from './components/Sleepy';
@@ -10,7 +12,16 @@ import Guilty from './components/Guilty';
 class Home extends Component{
   render(){
     return(
-      // your code goes here
+      <BrowserRouter>
+        <Switch>
+          <Navbar/>
+          <Route exact path="/" />
+          <Route path ="/components/Happy" component={Happy} />
+          <Route path ="/components/Guilty" component={Guilty} />
+          <Route path ="/components/Sleepy" component={Sleepy} />
+        </Switch>
+      </BrowserRouter>
+    
     )
   }
 }
